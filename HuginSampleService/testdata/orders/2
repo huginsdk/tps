@@ -1,1 +1,83 @@
-{"Document":{"OkcId":"FA13000025","OkcPassword":"hgn2016","DocumentType":8,"DocumentNo":82,"DocumentDate":"2016-05-02T11:12:14","ZNo":39,"CashierNum":"6","FooterNotes":[],"OrderCode":"","TokenId":"","CustomTags":[]},"PayItems":[{"Amount":57.0,"PaymentType":0,"InstallmentNo":0,"CreditId":0,"Definition":"","ReferenceCode":"","IssuerId":"","CardNumber":"","AcquireId":""}],"FoundationName":"B","SubscriberNo":"6","CommisionAmount":5.0,"SalesTotal":0.0,"InvoiceTotal":52.0,"InvoiceDate":"22122016","InvoiceNo":"J"}
+{
+	"Document": {
+		"OkcId": "FO00000198",
+		"OkcPassword": "",
+		"DocumentType": 2,
+		"DocumentNo": 7,
+		"DocumentDate": "2016-04-18T13:24:46",
+		"ZNo": 39,
+		"CashierNum": "6",
+		"FooterNotes": [],
+		"OrderCode": "",
+		"TokenId": "",
+		"CustomTags": []
+	},
+	"SaleItems": [{
+		"Quantity": 1.0,
+		"Amount": 0.75,
+		"PLUNo": 1,
+		"DepartmentId": 2,
+		"VatRate": 1.0,
+		"Definition": "EKMEK               ",
+		"Barcode": "250001",
+		"ReferenceCode": "",
+		"DiscountInfo": {
+			"DiscountTotal": 0.0,
+			"DiscountRate": 0,
+			"DiscountNotes": []
+		},
+		"Weighable": "",
+		"Price": 0.0,
+		"SalesPerson": 0,
+		"ItemNotes": [],
+		"ProductSerialNum": "",
+		"StockControl": 0,
+		"CustomTags": []
+	},
+	{
+		"Quantity": 1.0,
+		"Amount": 0.25,
+		"PLUNo": 2,
+		"DepartmentId": 2,
+		"VatRate": 1.0,
+		"Definition": "CIKOLATA            ",
+		"Barcode": "250002",
+		"ReferenceCode": "",
+		"DiscountInfo": {
+			"DiscountTotal": 0.0,
+			"DiscountRate": 0,
+			"DiscountNotes": []
+		},
+		"Weighable": "",
+		"Price": 0.0,
+		"SalesPerson": 0,
+		"ItemNotes": [],
+		"ProductSerialNum": "",
+		"StockControl": 0,
+		"CustomTags": []
+	}],
+	"PayItems": [{
+		"Amount": 1.0,
+		"PaymentType": 1,
+		"InstallmentNo": 0,
+		"CreditId": 0,
+		"Definition": "",
+		"ReferenceCode": "",
+		"IssuerId": "",
+		"CardNumber": "",
+		"AcquireId": ""
+	}],
+	"SalesTotal": 1.0,
+	"DiscountCode": "",
+	"DiscountInfo": {
+		"DiscountTotal": 0.0,
+		"DiscountRate": 0,
+		"DiscountNotes": []
+	},
+	"CustomerInfo": {
+		"Name": "",
+		"ID": "1234567890"
+	},
+	"SalesPerson": 0,
+	"InvoiceNo": "AJ124"
+}

@@ -13,6 +13,24 @@ namespace HuginWS
         Credit = 3,
         Curr = 4
     }
+
+    public enum PaymentSubType
+    {
+        Sale = 1,
+        MaturityDifference = 3,
+        Installment = 4,
+        CCDebt = 5,
+        NewDocument = 10,
+        Cashback = 12,
+        Credit = 13,
+        PointSearch = 14,
+        PointUse = 16,
+        EReturn = 20,
+        PartialReturn = 22,
+        PrepaidCashInstall = 29,
+        PrepaidCardInstall = 30
+    }
+
     #endregion
 
     #region SalesInfo
@@ -24,9 +42,7 @@ namespace HuginWS
         public int DocumentType;
         public int DocumentNo;
         public string InvoiceNo = string.Empty;
-        public DateTime InvoiceDate = new DateTime();
-        public int ZNo;
-        public DateTime CreateDate = new DateTime();
+        public int ZNo;     
         public string CashierNum = string.Empty;
         public List<ItemInfo> SaleItems = new List<ItemInfo>();
         public List<PaymentInfo> PayItems = new List<PaymentInfo>();
@@ -37,10 +53,8 @@ namespace HuginWS
         public string DiscountCode = string.Empty;
         public DiscountInfo DiscountInfo = new DiscountInfo();
         public int SalesPerson;
-        public string CashInOutSerial = string.Empty;
-        public string UserName = string.Empty;
-        public string OperationCode = string.Empty;
         public string OrderCode = string.Empty;
+        public int DocumentStatus;
     }
 
     public class ItemInfo
@@ -74,6 +88,7 @@ namespace HuginWS
         public string IssuerId = string.Empty;
         public string CardNumber = string.Empty;
         public string AcquireId = string.Empty;
+        public PaymentSubType PaymentSubType;
     }
 
     public class CustomerInfo
@@ -91,7 +106,7 @@ namespace HuginWS
 
     public class CustomTag
     {
-        public int Type;//1-Sipariş,2-İndirim,3-ReferansKodu
+        public int Type;
         public string Value = string.Empty;
     }
 

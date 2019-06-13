@@ -1,0 +1,33 @@
+{
+	"Document": {
+		"OkcId": "FO00000198",
+		"OkcPassword": "",
+		"DocumentType": 8,
+		"DocumentNo": 26,
+		"DocumentDate": "2016-04-18T14:59:41",
+		"ZNo": 39,
+		"CashierNum": "6",
+		"FooterNotes": [],
+		"OrderCode": "KL678",
+		"TokenId": "",
+		"CustomTags": []
+	},
+	"PayItems": [{
+		"Amount": 25.0,
+		"PaymentType": 1,
+		"InstallmentNo": 0,
+		"CreditId": 0,
+		"Definition": "",
+		"ReferenceCode": "",
+		"IssuerId": "",
+		"CardNumber": "",
+		"AcquireId": ""
+	}],
+	"FoundationName": "A",
+	"SubscriberNo": "123",
+	"CommisionAmount": 0.0,
+	"SalesTotal": 0.0,
+	"InvoiceTotal": 25.0,
+	"InvoiceDate": "12122016",
+	"InvoiceNo": "QA"
+}

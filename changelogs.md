@@ -18,7 +18,7 @@
     - "CommisionAmount": 0.0 - decimal (max 999.999,99)  
 	- "InvoiceTotal": 25.0 - decimal (max 999.999,99)
 	
-- This field using for InvoicePayment document.
+- This field using for Parking document.
 	- "PlateNum": "58AT256" - string (max 8) 
 
 - "CashInOutSerial" field send to in customtags.

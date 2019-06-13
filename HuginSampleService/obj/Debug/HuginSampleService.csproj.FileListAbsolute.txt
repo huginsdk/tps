@@ -1,6 +1,0 @@
-E:\HuginTPSSampleWS\HuginSampleService\obj\Debug\HuginSampleService.csprojResolveAssemblyReference.cache
-E:\HuginTPSSampleWS\HuginSampleService\bin\HuginWS.dll
-E:\HuginTPSSampleWS\HuginSampleService\bin\HuginWS.pdb
-E:\HuginTPSSampleWS\HuginSampleService\bin\Newtonsoft.Json.dll
-E:\HuginTPSSampleWS\HuginSampleService\obj\Debug\HuginWS.dll
-E:\HuginTPSSampleWS\HuginSampleService\obj\Debug\HuginWS.pdb

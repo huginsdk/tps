@@ -13,7 +13,7 @@ namespace HuginWS
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceContract]
     public class TPSService
-    {       
+    {
         [OperationContract]
         [WebInvoke(UriTemplate = "sale?okc_id={okc_id}&password={password}", Method = "POST",
             RequestFormat = WebMessageFormat.Json,
@@ -25,15 +25,39 @@ namespace HuginWS
             {
                 /* okc_id and password should be done with authority control. */
 
-                string salesinfo = new StreamReader(strPost).ReadToEnd();
+                string salesinfo = new StreamReader(strPost, System.Text.Encoding.GetEncoding("windows-1254")).ReadToEnd();
                 string filePath = String.Format("{0}{1}_{2}.json", ECRDataFolder, okc_id, DateTime.Now.ToString("yyMMdd_HHmmss"));
-                File.WriteAllText(filePath, salesinfo);
+                File.WriteAllText(filePath, salesinfo, System.Text.Encoding.GetEncoding("windows-1254"));
                 return result;
 
                 SalesInfo salesInfo = JsonConvert.DeserializeObject<SalesInfo>(salesinfo);
                 filePath = String.Format("{0}{1}_{2}_{3}.json", ECRDataFolder, okc_id, salesInfo.ZNo, salesInfo.DocumentNo);
                 filePath = String.Format("{0}{1}_{2}.json", ECRDataFolder, okc_id, DateTime.Now.ToString("yyMMdd_HHmmss"));
                 File.WriteAllText(filePath, salesinfo);
+            }
+            catch (Exception ex)
+            {
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.Conflict;
+                result = ex.Message;
+            }
+            return result;
+        }
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "zreport?okc_id={okc_id}&password={password}", Method = "POST",
+                                    RequestFormat = WebMessageFormat.Json,
+                                   ResponseFormat = WebMessageFormat.Json)]
+        string zreport(string okc_id, string password, Stream strPost)
+        {
+            string result = string.Empty;
+            try
+            {
+                /* okc_id and password should be done with authority control. */
+
+                string salesinfo = new StreamReader(strPost, System.Text.Encoding.GetEncoding("windows-1254")).ReadToEnd();
+                string filePath = String.Format("{0}{1}_{2}.json", ReportFolder, okc_id, DateTime.Now.ToString("yyMMdd_HHmmss"));
+                File.WriteAllText(filePath, salesinfo, System.Text.Encoding.GetEncoding("windows-1254"));
+                return result;
             }
             catch (Exception ex)
             {
@@ -120,7 +144,7 @@ namespace HuginWS
 
                 if (!string.IsNullOrEmpty(order_id))
                 {
-                    result = File.ReadAllText(OrderDataFolder + order_id);
+                    result = File.ReadAllText(OrderDataFolder + order_id, System.Text.Encoding.GetEncoding("ISO-8859-9"));
                     return result.Replace("\"", "'");
 
                     //SalesInfo salesInfo = JsonConvert.DeserializeObject<SalesInfo>(orderData);
@@ -149,7 +173,7 @@ namespace HuginWS
                         }
 
                         WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.PartialContent;
-                        result = JsonConvert.SerializeObject(list).Replace("\"", "'"); ;
+                        result = JsonConvert.SerializeObject(list).Replace("\"", "'");
                         break;
                 }
             }
@@ -196,7 +220,7 @@ namespace HuginWS
                 /* okc_id and password should be done with authority control. */
 
                 //Sample product list
-                result = File.ReadAllText(TestDataFolder + "products.txt");
+                result = File.ReadAllText(TestDataFolder + "products.txt", System.Text.Encoding.GetEncoding("windows-1254"));
             }
             catch (Exception ex)
             {
@@ -240,12 +264,36 @@ namespace HuginWS
             return result;
         }
 
+
+        [OperationContract]
+        [WebInvoke(UriTemplate = "settings?okc_id={okc_id}&password={password}", Method = "POST",
+             ResponseFormat = WebMessageFormat.Json)]
+        string settings(string okc_id, string password)
+        {
+            string result = string.Empty;
+            try
+            {
+
+                var settings = File.ReadAllText(SettingsFolder + "settings.txt");
+                return settings;
+
+            }
+            catch (Exception ex)
+            {
+                WebOperationContext.Current.OutgoingResponse.StatusCode = System.Net.HttpStatusCode.Conflict;
+                result = ex.Message;
+            }
+            return result;
+        }
+
         System.Text.Encoding DefaultEncoding = System.Text.Encoding.UTF8;
-        #region StaticVariables
+#region StaticVariables
         public static string ECRDataFolder = AppDomain.CurrentDomain.BaseDirectory + "data\\";
         public static string TestDataFolder = AppDomain.CurrentDomain.BaseDirectory + "testdata\\";
         public static string OrderDataFolder = AppDomain.CurrentDomain.BaseDirectory + "testdata\\orders\\";
+        public static string ReportFolder = AppDomain.CurrentDomain.BaseDirectory + "testdata\\reports\\";
+        public static string SettingsFolder = AppDomain.CurrentDomain.BaseDirectory + "testdata\\settings\\";
         private static String strVersion = "$Revision: 9017 $";
-        #endregion
+#endregion
     }
 }

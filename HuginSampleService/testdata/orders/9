@@ -1,0 +1,36 @@
+{
+	"Document": {
+		"OkcId": "FO00000198",
+		"OkcPassword": "",
+		"DocumentType": 9,
+		"DocumentNo": 79,
+		"DocumentDate": "2017-03-02T10:52:35",
+		"ZNo": 16,
+		"CashierNum": "6",
+		"FooterNotes": ["00198"],
+		"OrderCode": "",
+		"TokenId": "",
+		"CustomTags": [],
+		"DocumentStatus": 0
+	},
+	"PayItems": [{
+		"Amount": 58.0,
+		"PaymentType": 1,
+		"InstallmentNo": 0,
+		"CreditId": 0,
+		"Definition": "",
+		"ReferenceCode": "",
+		"IssuerId": "",
+		"CardNumber": "",
+		"AcquireId": "",
+		"CreditCardHolder": "",
+		"PaymentSubType": 0
+	}],
+	"SalesTotal": 58.0,
+	"CustomerInfo": {
+		"Name": "AHMET",
+		"ID": "11111111111"
+	},
+	"InvoiceDate": "17022017",
+	"InvoiceNo": "AB1234 "
+}
